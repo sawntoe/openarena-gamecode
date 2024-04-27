@@ -1139,6 +1139,9 @@ endef
 
 define DO_CGAME_CC
 $(echo_cmd) "CGAME_CC $<"
+@echo $(SHLIBCFLAGS)
+@echo $(CFLAGS)
+@echo $(OPTIMIZEVM)
 $(Q)$(CC) $(BASEGAME_CFLAGS) -DCGAME $(SHLIBCFLAGS) $(CFLAGS) $(OPTIMIZEVM) -o $@ -c $<
 $(Q)$(DO_QVM_DEP)
 endef
