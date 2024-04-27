@@ -303,12 +303,15 @@ endif
 INSTALL=install
 MKDIR=mkdir
 
+@echo $(COMPILE_PLATFORM)
+
 ifneq (,$(findstring "$(COMPILE_PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu"))
+  @echo "This should be here."
   TOOLS_CFLAGS += -DARCH_STRING=\"$(COMPILE_ARCH)\"
 endif
 
 ifneq (,$(findstring "$(PLATFORM)", "linux" "gnu_kfreebsd" "kfreebsd-gnu" "gnu"))
-
+  @echo "This should also be here."
   BASE_CFLAGS = -Wall -fno-strict-aliasing -Wimplicit -Wstrict-prototypes \
     -pipe -DUSE_ICON -DARCH_STRING=\\\"$(ARCH)\\\"
   CLIENT_CFLAGS += $(SDL_CFLAGS)
